@@ -2,10 +2,27 @@
   <div class="home">
     <Top v-bind:heading="heading"
     />
-    <Card
+
+    <Card v-for="(card, index) in allCards"
+      v-bind:key="index"
+      v-bind:cardNo="card.cardNo"
+      v-bind:name="card.name"
+      v-bind:validThruMonth="card.validThruMonth"
+      v-bind:validThruYear="card.validThruYear"
+
     />
+    <!-- <Card
+      v-bind:cardNo="activeCard.cardNo"
+      v-bind:name="card.name"
+      v-bind:validThruMonth="card.validThruMonth"
+      v-bind:validThruYear="card.validThruYear"
+
+    /> -->
+
     <CardStack
+     
     />
+
     <router-link to="/add-card">
       <button class="add-new-card">ADD A NEW CARD</button>
     </router-link>
@@ -26,9 +43,18 @@ export default {
     CardStack,
   },
   data: () => ({
-        heading: "E-WALLET"
+        heading: "E-WALLET",
 
     }),
+  computed: {
+    activeCard() {
+      return this.$root.getThisCard(1234567891011123)
+    },
+    allCards() {
+      return this.$root.getAllCards();
+    }
+
+  }
 }
 </script>
 
