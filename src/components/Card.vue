@@ -4,11 +4,12 @@
       <img src="../assets/chip-dark.svg" alt="Chip">
       <!-- <img v-bind:src="../assets/chip-dark.svg"> -->
       <!-- <img src=`..assets/vendor-${{vendor}}.svg` alt="Vendor logo"> -->
-      <img v-bind:src="'../assets/vendor-' + vendor + '.svg'">
+      <!-- <img v-bind:src="'../assets/vendor-' + vendor + '.svg'"> -->
+      <img v-bind:src="require('@/assets/vendor-' + vendor + '.svg')">
 
       <h3>{{ cardNo }}</h3>
       <p>CARDHOLDER NAME</p>
-      <p>VALID THRU</p><p>{{vendor}}</p>
+      <p>VALID THRU</p><p>{{ vendor }}</p>
       <h5>{{ name }}</h5>
       <h5>{{ validThruMonth }} / {{ validThruYear }} </h5>
 
