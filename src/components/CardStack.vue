@@ -7,6 +7,7 @@
       v-bind:name="card.name"
       v-bind:validThruMonth="card.validThruMonth"
       v-bind:validThruYear="card.validThruYear"
+      v-bind:vendor="card.vendor"
 
     />
 
@@ -17,22 +18,15 @@
 import Card from '@/components/Card.vue'
 
 export default {
-  name: 'CardStack',
+  //name: 'CardStack',
   components: {
       Card,
   },
   props: {
-    cardNo: String,
-    name: String,
-    validThruMonth: String,
-    validThruYear: String,
-    ccv: String,
-    vendor: String,
+    allCards: Array,
   },
   computed: {
-    allCards() {
-      return this.$root.getAllCards();
-    },
+  }
 }
 </script>
 

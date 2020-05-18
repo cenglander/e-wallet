@@ -1,18 +1,20 @@
 <template>
   <div class="home">
     <Top v-bind:heading="heading"
+
+    />
+    
+    <Card  
+      v-bind:cardNo="activeCard.cardNo"
+      v-bind:name="activeCard.name"
+      v-bind:validThruMonth="activeCard.validThruMonth"
+      v-bind:validThruYear="activeCard.validThruYear"
+      v-bind:vendor="activeCard.vendor"
     />
 
-    <Card v-for="(card, index) in allCards"
+    <!-- <Card v-for="(card, index) in allCards"
       v-bind:key="index"
       v-bind:cardNo="card.cardNo"
-      v-bind:name="card.name"
-      v-bind:validThruMonth="card.validThruMonth"
-      v-bind:validThruYear="card.validThruYear"
-
-    />
-    <!-- <Card
-      v-bind:cardNo="activeCard.cardNo"
       v-bind:name="card.name"
       v-bind:validThruMonth="card.validThruMonth"
       v-bind:validThruYear="card.validThruYear"
@@ -20,7 +22,7 @@
     /> -->
 
     <CardStack
-     
+      v-bind:allCards="allCards"
     />
 
     <router-link to="/add-card">
@@ -33,7 +35,7 @@
 <script>
 import Top from '@/components/Top.vue'
 import Card from '@/components/Card.vue'
-import CardStack from '@/components/Top.vue'
+import CardStack from '@/components/CardStack.vue'
 
 export default {
   name: 'Home',

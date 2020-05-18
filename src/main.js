@@ -13,7 +13,7 @@ new Vue({
           validThruMonth: "09",
           validThruYear: "23",
           ccv: "543",
-          vendor: "Bitcoin Inc",
+          vendor: "bitcoin",
         },
         {
           cardNo: "1111222233334444",
@@ -21,7 +21,23 @@ new Vue({
           validThruMonth: "12",
           validThruYear: "25",
           ccv: "231",
-          vendor: "Ninja Bank",
+          vendor: "ninja",
+        },
+        {
+          cardNo: "5555222233334444",
+          name: "Per Andersson",
+          validThruMonth: "01",
+          validThruYear: "22",
+          ccv: "671",
+          vendor: "blockchain",
+        },
+        {
+          cardNo: "1111222233334444",
+          name: "Babben Larsson",
+          validThruMonth: "05",
+          validThruYear: "26",
+          ccv: "907",
+          vendor: "evil",
         },
     ],
 

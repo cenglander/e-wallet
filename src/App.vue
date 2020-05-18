@@ -14,8 +14,6 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // margin: 0;
-  // padding: 0;
 
   button {
     font-weight: 1000;
@@ -24,7 +22,7 @@
 
   h3 {
     padding: 0;
-    // margin: 0;
+    margin: 0;
   }
   p, h5 {
     padding: 0;
