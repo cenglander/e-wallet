@@ -1,7 +1,7 @@
 <template>
   <div class="add-card">
-    <h1>ADD A NEW BANK CARD</h1>
-    <Top 
+    <Top v-bind:heading="heading"
+    
     />
     <Card 
     />
@@ -24,6 +24,9 @@ export default {
     Top,
     Card,
     CardForm,
-  }
+  },
+  data: () => ({
+      heading: "ADD A NEW BANK CARD"
+  })
 }
 </script>

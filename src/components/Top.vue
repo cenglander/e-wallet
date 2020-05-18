@@ -1,6 +1,6 @@
 <template>
   <header class="top">
-    
+    <h1>{{ heading }}</h1>
 
   </header>
 </template>
@@ -10,8 +10,9 @@
 
 export default {
   name: 'Top',
-  components: {
-  }
+  props: {
+      heading: String,
+  },
 }
 </script>
 
