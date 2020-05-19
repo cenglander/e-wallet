@@ -37,3 +37,10 @@ export default {
   })
 }
 </script>
+<style scoped lang="scss">
+  div .add-card {
+    width: 90vw;
+    height: 80vh;
+    margin: 0 auto;
+  }
+</style>
