@@ -6,11 +6,12 @@
       <img v-else
         v-bind:src="require('@/assets/chip-light.svg')">
       
-      <img v-bind:src="require('@/assets/vendor-' + vendor + '.svg')">
+      <img v-if="!(vendor == 'placeholder')"
+        v-bind:src="require('@/assets/vendor-' + vendor + '.svg')">
 
       <h3>{{ cardNo }}</h3>
       <p>CARDHOLDER NAME</p>
-      <p>VALID THRU</p><p>{{ vendor }}</p>
+      <p>VALID THRU</p>
       <h5>{{ name }}</h5>
       <h5>{{ validThruMonth }} / {{ validThruYear }} </h5>
 
@@ -34,11 +35,7 @@ export default {
       isActive: Boolean,
 
   },
-  // computed: {
-  //   style() {
-
-  //   }
-  // }
+  // computed: { style() { }}
 };
 </script>
 
@@ -50,7 +47,9 @@ div .card {
   border: lightgrey solid 0.1rem;
   // background: darkorange;
 
-  display: grid;
+  // display: grid;
+  // grid-template-columns: repeat(2, 1fr);
+  // grid-template-rows: repeat(4, 1fr);
 
 }
 p {
@@ -71,5 +70,9 @@ p {
 .evil {
   background: magenta;
   color: white;
+}
+.placeholder {
+  background: lightgrey;
+  color: black;
 }
 </style>

@@ -9,9 +9,9 @@
       v-bind:validThruMonth="card.validThruMonth"
       v-bind:validThruYear="card.validThruYear"
       v-bind:vendor="card.vendor"
-      v-bind:isActive="card.isActive"
-
+      v-bind:isActive="card.isActive" 
     />
+    <!-- v-bind:style="{bottom: index * 10 + 'rem'}" -->
 
   </div>
 </template>

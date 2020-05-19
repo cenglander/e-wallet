@@ -3,7 +3,14 @@
     <Top v-bind:heading="heading"
     
     />
-    <Card 
+    <Card  
+      cardNo="XXXX XXXX XXXX XXXX"
+      name="FIRSTNAME LASTNAME"
+      validThruMonth="MM"
+      validThruYear="YY"
+      vendor="placeholder"
+      isActive="true"
+      v-bind:style="{backgroundColor: vendor}"
     />
     <CardForm
     />
