@@ -14,6 +14,7 @@ new Vue({
           validThruYear: "23",
           ccv: "543",
           vendor: "bitcoin",
+          isActive: true,
         },
         {
           cardNo: "1111222233334444",
@@ -22,6 +23,7 @@ new Vue({
           validThruYear: "25",
           ccv: "231",
           vendor: "ninja",
+          isActive: false,
         },
         {
           cardNo: "5555222233334444",
@@ -30,6 +32,7 @@ new Vue({
           validThruYear: "22",
           ccv: "671",
           vendor: "blockchain",
+          isActive: false,
         },
         {
           cardNo: "1111222233334444",
@@ -38,17 +41,19 @@ new Vue({
           validThruYear: "26",
           ccv: "907",
           vendor: "evil",
+          isActive: false,
         },
     ],
 
   }),
-  // test med metoder nedan och array ovan här
+  
   methods: {
     getThisCard(cardNo) {
       return this.cardArray.find(card => card.cardNo == cardNo);
     },
     getAllCards() {
-      return this.cardArray;
+      // return this.cardArray;
+      return this.cardArray.filter(card => !card.isActive)
     },
     // saveNewCard() {
 

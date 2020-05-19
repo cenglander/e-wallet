@@ -1,10 +1,11 @@
 <template>
   <div class="card"
       v-bind:class="vendor">
-      <img src="../assets/chip-dark.svg" alt="Chip">
-      <!-- <img v-bind:src="../assets/chip-dark.svg"> -->
-      <!-- <img src=`..assets/vendor-${{vendor}}.svg` alt="Vendor logo"> -->
-      <!-- <img v-bind:src="'../assets/vendor-' + vendor + '.svg'"> -->
+      <img v-if="isActive"
+        v-bind:src="require('@/assets/chip-dark.svg')">
+      <img v-else
+        v-bind:src="require('@/assets/chip-light.svg')">
+      
       <img v-bind:src="require('@/assets/vendor-' + vendor + '.svg')">
 
       <h3>{{ cardNo }}</h3>
@@ -30,6 +31,7 @@ export default {
       validThruYear: String,
       ccv: String,
       vendor: String,
+      isActive: Boolean,
 
   },
   // computed: {

@@ -10,16 +10,8 @@
       v-bind:validThruMonth="activeCard.validThruMonth"
       v-bind:validThruYear="activeCard.validThruYear"
       v-bind:vendor="activeCard.vendor"
+      v-bind:isActive="activeCard.isActive"
     />
-
-    <!-- <Card v-for="(card, index) in allCards"
-      v-bind:key="index"
-      v-bind:cardNo="card.cardNo"
-      v-bind:name="card.name"
-      v-bind:validThruMonth="card.validThruMonth"
-      v-bind:validThruYear="card.validThruYear"
-
-    /> -->
 
     <CardStack
       v-bind:allCards="allCards"
