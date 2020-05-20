@@ -43,13 +43,10 @@ export default {
 
 <style scoped lang="scss">
 div.card {
-  // width: 90vw;
   width: 300px;
-  // height: 55vw;
   min-height: 180px;
   border-radius: 0.5rem;
   border: lightgrey solid 0.1rem;
-  // background: darkorange;
 
   display: grid;
   grid-template-columns: 70% 15% 15%;

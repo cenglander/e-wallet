@@ -4,8 +4,8 @@
     
     />
     <Card  
-      cardNo="XXXX XXXX XXXX XXXX"
-      name="FIRSTNAME LASTNAME"
+      v-bind:cardNo="this.cardNo"
+      v-bind:name="this.name"
       validThruMonth="MM"
       validThruYear="YY"
       vendor="placeholder"
@@ -13,6 +13,7 @@
       v-bind:style="{backgroundColor: vendor}"
     />
     <CardForm
+      v-on:displayNo="displayNoOnCard"
     />
 
   </div>
@@ -33,14 +34,21 @@ export default {
     CardForm,
   },
   data: () => ({
-      heading: "ADD A NEW BANK CARD"
-  })
+      heading: "ADD A NEW BANK CARD",
+      cardNo: "",
+      name: "",
+
+  }),
+  methods: {
+    displayNoOnCard(payload) {
+      this.cardNo = payload;
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
   div .add-card {
     width: 90vw;
-    height: 80vh;
     margin: 0 auto;
   }
 </style>
