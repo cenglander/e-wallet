@@ -27,7 +27,13 @@
   p, h5 {
     padding: 0;
     margin: 0;
-}
+  }
+  p {
+    font-size: 0.7rem;
+  }
+  h5 {
+    font-size: 1.1rem;
+  }
 
 }
 
