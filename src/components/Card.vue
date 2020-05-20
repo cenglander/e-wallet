@@ -43,10 +43,10 @@ export default {
 
 <style scoped lang="scss">
 div.card {
-  width: 90vw;
+  // width: 90vw;
   max-width: 300px;
-  height: 55vw;
-  max-height: 200px;
+  // height: 55vw;
+  min-height: 180px;
   border-radius: 0.5rem;
   border: lightgrey solid 0.1rem;
   // background: darkorange;
@@ -55,7 +55,7 @@ div.card {
   grid-template-columns: 70% 15% 15%;
   grid-template-rows: 20% 30% 25% 10% 15%;
   margin: 0 auto;
-  padding: 2% 2%;
+  padding: 4%;
   font-family: 'Courier New', Courier, monospace;
 
   img.chip {
@@ -92,10 +92,8 @@ div.card {
     grid-column: 2 / 4;
     grid-row: 5 / 6;
     text-align: right;
-  }
-  
+  } 
 }
-
 
 .bitcoin {
   background: orange;

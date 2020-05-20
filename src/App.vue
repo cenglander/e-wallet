@@ -18,6 +18,9 @@
   button {
     font-weight: 1000;
     font-size: 1rem;
+    padding: 2vh;
+    border-radius: 0.5rem;
+    min-width: 300px;
   }
 
   h3 {
@@ -29,10 +32,10 @@
     margin: 0;
   }
   p {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
   }
   h5 {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 
 }

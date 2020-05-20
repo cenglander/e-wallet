@@ -18,7 +18,12 @@
     />
 
     <router-link to="/add-card">
-      <button class="add-new-card">ADD A NEW CARD</button>
+      <button v-if="allCards.length > 0"
+        class="add-new-card"
+        >ADD A NEW CARD</button>
+      <button v-else
+        class="add-first-card"
+        >ADD A NEW CARD</button>
     </router-link>
 
   </div>
@@ -55,19 +60,18 @@ export default {
 <style lang="scss">
 div .home {
   width: 90vw;
-  height: 80vh;
   // background: lightcoral;
-  // display: flex;
-  // justify-content: center;
-  margin: auto;
+  margin: 0 auto;
 
 }
-.add-new-card {
-  width: 90vw;
-  padding: 2vh 0;
-  border-radius: 0.5rem;
+button.add-new-card {
   border: solid black 0.08rem;
   background: inherit;
+  margin: 22vh auto;
+}
+button.add-first-card {
+  margin: 10vh auto;
+  border: solid black 0.08rem;
 }
 
 </style>

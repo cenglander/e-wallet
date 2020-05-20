@@ -1,6 +1,5 @@
 <template>
   <div class="card-stack">
-    
     <Card 
       v-for="(card, index) in allCards"
       v-bind:key="index"
@@ -32,6 +31,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+div.card-stack {
+  display: grid;
+  grid-auto-rows: 30px;
+  
+}
 
 </style>
