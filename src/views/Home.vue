@@ -19,10 +19,10 @@
 
     <router-link to="/add-card">
       <button v-if="allCards.length > 0"
-        class="add-new-card"
+        class="add-new-card-btn"
         >ADD A NEW CARD</button>
       <button v-else
-        class="add-first-card"
+        class="add-first-card-btn"
         >ADD A NEW CARD</button>
     </router-link>
 
@@ -59,17 +59,17 @@ export default {
 
 <style lang="scss">
 div .home {
-  width: 90vw;
+  width: 100%;
   // background: lightcoral;
   margin: 0 auto;
 
 }
-button.add-new-card {
+button.add-new-card-btn {
   border: solid black 0.08rem;
   background: inherit;
   margin: 22vh auto;
 }
-button.add-first-card {
+button.add-first-card-btn {
   margin: 10vh auto;
   border: solid black 0.08rem;
 }

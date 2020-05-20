@@ -13,14 +13,14 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  // color: #000;
 
   button {
     font-weight: 1000;
     font-size: 1rem;
     padding: 2vh;
     border-radius: 0.5rem;
-    min-width: 300px;
+    width: 300px;
   }
 
   h3 {
@@ -32,7 +32,7 @@
     margin: 0;
   }
   p {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   h5 {
     font-size: 1rem;

@@ -44,7 +44,7 @@ export default {
 <style scoped lang="scss">
 div.card {
   // width: 90vw;
-  max-width: 300px;
+  width: 300px;
   // height: 55vw;
   min-height: 180px;
   border-radius: 0.5rem;
