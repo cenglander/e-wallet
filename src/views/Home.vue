@@ -60,6 +60,7 @@ export default {
 <style lang="scss">
 div .home {
   width: 100%;
+  // width: 90vw;
   // background: lightcoral;
   margin: 0 auto;
 

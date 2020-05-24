@@ -6,14 +6,16 @@
     <Card  
       v-bind:cardNo="this.cardNo"
       v-bind:name="this.name"
-      validThruMonth="MM"
-      validThruYear="YY"
+      v-bind:validThruMonth="this.validThruMonth"
+      v-bind:validThruYear="this.validThruYear"
       vendor="placeholder"
       isActive="true"
       v-bind:style="{backgroundColor: vendor}"
     />
     <CardForm
       v-on:displayNo="displayNoOnCard"
+      v-on:displayName="displayNameOnCard"
+      v-on:displayValidThru="displayValidThruOnCard"
     />
 
   </div>
@@ -35,13 +37,25 @@ export default {
   },
   data: () => ({
       heading: "ADD A NEW BANK CARD",
-      cardNo: "",
-      name: "",
+      cardNo: "XXXX XXXX XXXX XXXX",
+      name: "FIRSTNAME LASTNAME",
+      validThruMonth: "",
+      validThruYear: "",
+      ccv: "",
+      vendor: "",
+
 
   }),
   methods: {
     displayNoOnCard(payload) {
       this.cardNo = payload;
+    },
+    displayNameOnCard(payload) {
+      this.name = payload.toUpperCase();
+    },
+    displayValidThruOnCard(payload) {
+      this.validThruMonth = payload.substring(0, 2);
+      this.validThruYear = payload.substring(2);
     }
   }
 }

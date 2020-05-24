@@ -3,19 +3,22 @@
     <form action="">
       <label>CARD NUMBER {{cardNo}} </label>
       <input v-model="cardNo" 
-        v-on:keyup="displayNoOnCard"
-        placeholder="XXXX">
+        v-on:keyup="displayNoOnCard">
 
       <label>CARDHOLDER NAME</label>
       <input v-model="name"
+        v-on:keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME">
 
       <label class="left">VALID THRU</label>
-      <input v-model="validThruMonth" class="left">
-      <!-- plus validThruYear! -->
+      <input v-model="validThru" 
+        v-on:keyup="displayValidThruOncard" 
+        class="left">
+      <!-- ta in 4 tecken, emitta, metod i AddCard som delar -->
 
       <label class="right">CCV</label>
-      <input v-model="ccv" class="right">
+      <input v-model="ccv" 
+        class="right">
 
       <label>VENDOR</label>
       <select v-model="vendor">
@@ -49,8 +52,14 @@ export default {
   methods: {
     displayNoOnCard() {
       this.$emit('displayNo', this.cardNo)
-
+    },
+    displayNameOnCard() {
+      this.$emit('displayName', this.name)
+    },
+    displayValidThruOncard() {
+      this.$emit('displayValidThru', this.validThru)
     }
+
   }
 }
 </script>
