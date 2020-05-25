@@ -1,27 +1,27 @@
 <template>
   <div class="card-form">
     <form action="">
-      <label>CARD NUMBER {{cardNo}} </label>
-      <input v-model="cardNo" 
+      <label>CARD NUMBER {{ this.card.cardNo }} </label>
+      <input v-model="card.cardNo" 
         v-on:keyup="displayNoOnCard">
 
       <label>CARDHOLDER NAME</label>
-      <input v-model="name"
+      <input v-model="card.name"
         v-on:keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME">
 
       <label class="left">VALID THRU</label>
       <input v-model="validThru" 
-        v-on:keyup="displayValidThruOncard" 
+        v-on:keyup="displayValidThruOncard(); splitValidThru()" 
         class="left">
-      <!-- ta in 4 tecken, emitta, metod i AddCard som delar -->
 
       <label class="right">CCV</label>
-      <input v-model="ccv" 
+      <input v-model="card.ccv" 
         class="right">
 
       <label>VENDOR</label>
-      <select v-model="vendor">
+      <select v-model="card.vendor"
+        v-on:change="displayVendorOnCard">
         <option v-for="vendor in vendorList"
           v-bind:key="vendor.value"
           v-bind:value="vendor.value">
@@ -40,25 +40,46 @@ export default {
   name: 'CardForm',
   components: {
   },
+  // props: {
+  //   card: Object,
+  // },
   data: () => ({
+    // selectedVendor: 'bitcoin',
     vendorList: [
       { text: 'Bitcoin Inc', value: 'bitcoin' },
       { text: 'Ninja Bank', value: 'ninja' },
       { text: 'Block Chain Inc', value: 'blockchain' },
       { text: 'Evil Corp', value: 'evil' },
     ],
-    cardNo: "",
+    // cardNo: "",
+    card: {
+      cardNo: "",
+      name: "",
+      validThruMonth: "",
+      validThruYear: "",
+      ccv: "",
+      vendor: "",
+      isActive: true,
+    },
   }),
   methods: {
     displayNoOnCard() {
-      this.$emit('displayNo', this.cardNo)
+      this.$emit('displayNo', this.card.cardNo)
     },
     displayNameOnCard() {
-      this.$emit('displayName', this.name)
+      this.$emit('displayName', this.card.name)
     },
     displayValidThruOncard() {
       this.$emit('displayValidThru', this.validThru)
-    }
+    },
+    displayVendorOnCard() {
+      this.$emit('displayVendor', this.card.vendor)
+    },
+    splitValidThru() {
+      this.card.validThruMonth = this.validThru.substring(0, 2);
+      this.card.validThruYear = this.validThru.substring(2);
+    },
+
 
   }
 }
