@@ -7,10 +7,15 @@
       v-bind:name="card.name"
       v-bind:validThruMonth="card.validThruMonth"
       v-bind:validThruYear="card.validThruYear"
+      v-bind:ccv="card.ccv"
       v-bind:vendor="card.vendor"
-      v-bind:isActive="card.isActive" 
-    />
-    <!-- v-bind:style="{bottom: index * 10 + 'rem'}" -->
+      v-bind:isActive="card.isActive"
+
+      v-on:click="activateCard(card)"
+
+    /> 
+<!-- v-on:click="activateCard(this.card)" -->
+
 
   </div>
 </template>
@@ -26,8 +31,12 @@ export default {
   props: {
     allCards: Array,
   },
-  computed: {
-  }
+  methods: {
+    // activateCard(cardToActivate) {
+    //   cardToActivate.isActive = true;
+    //   this.$emit('activateCard', cardToActivate);
+    // },
+  },
 }
 </script>
 

@@ -3,21 +3,25 @@
     <form action="">
       <label>CARD NUMBER {{ this.card.cardNo }} </label>
       <input v-model="card.cardNo" 
-        v-on:keyup="displayNoOnCard">
+        v-on:keyup="displayNoOnCard"
+        :maxlength="16">
 
       <label>CARDHOLDER NAME</label>
       <input v-model="card.name"
         v-on:keyup="displayNameOnCard"
-        placeholder="FIRSTNAME LASTNAME">
+        placeholder="FIRSTNAME LASTNAME"
+        :maxlength="30">
 
       <label class="left">VALID THRU</label>
       <input v-model="validThru" 
         v-on:keyup="displayValidThruOncard(); splitValidThru()" 
-        class="left">
+        class="left"
+        :maxlength="4">
 
       <label class="right">CCV</label>
       <input v-model="card.ccv" 
-        class="right">
+        class="right"
+        :maxlength="3">
 
       <label>VENDOR</label>
       <select v-model="card.vendor"
@@ -30,8 +34,10 @@
       </select>
     </form>
 
-    <button class="add-card-btn">ADD CARD</button>
-
+    <router-link to="/">
+      <button class="add-card-btn"
+        v-on:click="saveNewCard">ADD CARD</button>
+    </router-link>
   </div>
 </template>
 
@@ -40,18 +46,13 @@ export default {
   name: 'CardForm',
   components: {
   },
-  // props: {
-  //   card: Object,
-  // },
   data: () => ({
-    // selectedVendor: 'bitcoin',
     vendorList: [
       { text: 'Bitcoin Inc', value: 'bitcoin' },
       { text: 'Ninja Bank', value: 'ninja' },
       { text: 'Block Chain Inc', value: 'blockchain' },
       { text: 'Evil Corp', value: 'evil' },
     ],
-    // cardNo: "",
     card: {
       cardNo: "",
       name: "",
@@ -79,6 +80,9 @@ export default {
       this.card.validThruMonth = this.validThru.substring(0, 2);
       this.card.validThruYear = this.validThru.substring(2);
     },
+    saveNewCard() {
+      this.$emit('saveNewCard', this.card);
+    }
 
 
   }

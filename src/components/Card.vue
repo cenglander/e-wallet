@@ -1,6 +1,7 @@
 <template>
   <div class="card"
-      v-bind:class="vendor">
+      v-bind:class="vendor"
+      v-on:click="activateCard(this.card)">
       <img v-if="isActive"
         v-bind:src="require('@/assets/chip-dark.svg')"
         class="chip">
@@ -15,9 +16,9 @@
       <h3 class="cardNo">{{ cardNo }}</h3>
       <p class="name-heading">CARDHOLDER NAME</p>
       <p class="valid-thru-heading">VALID THRU</p>
-      <h5 class="name">{{ name }}</h5>
+      <h5 class="name">{{ name.toUpperCase() }}</h5>
       <h5 class="valid-thru">{{ validThruMonth }} / {{ validThruYear }} </h5>
-
+    
 
   </div>
 </template>
@@ -25,9 +26,6 @@
 <script>
 export default {
   name: "Card",
-  components: {
-
-  },
   props: {
       cardNo: String,
       name: String,
@@ -37,7 +35,12 @@ export default {
       vendor: String,
       isActive: Boolean,
   },
-  // computed: { style() { }}
+  methods: {
+    activateCard(cardToActivate) {
+      cardToActivate.isActive = true;
+      this.$root.activateCard(cardToActivate);
+    },
+  }
 };
 </script>
 
@@ -93,19 +96,19 @@ div.card {
 }
 
 .bitcoin {
-  background: orange;
+  background: #f9b243;
   color: black;
 }
 .ninja {
-  background: black;
+  background: #3a3835;
   color: white;
 }
 .blockchain {
-  background: purple;
+  background: #7a4bda;
   color: white;
 }
 .evil {
-  background: magenta;
+  background: #df2f4f;
   color: white;
 }
 .placeholder {

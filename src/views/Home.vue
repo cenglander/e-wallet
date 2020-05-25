@@ -4,17 +4,22 @@
 
     />
     
-    <Card  
+    <!-- se rad 9, v-if / v-show ?
+          v-show="activeCard.isActive"
+          funkar ej när inget av korten är isActive -->
+    <Card 
       v-bind:cardNo="activeCard.cardNo"
       v-bind:name="activeCard.name"
       v-bind:validThruMonth="activeCard.validThruMonth"
       v-bind:validThruYear="activeCard.validThruYear"
+      v-bind:ccv="activeCard.ccv"
       v-bind:vendor="activeCard.vendor"
       v-bind:isActive="activeCard.isActive"
     />
 
     <CardStack
       v-bind:allCards="allCards"
+      v-on:activateCard="activateCard"
     />
 
     <router-link to="/add-card">
@@ -47,13 +52,18 @@ export default {
     }),
   computed: {
     activeCard() {
-      return this.$root.getThisCard(1234567891011123)
+      return this.$root.getThisCard()
     },
     allCards() {
       return this.$root.getAllCards();
-    }
+    },
+  },
+  // methods: {
+  //   activateCard(cardToActivate) {  
+  //     this.$root.activateCard(cardToActivate);
+  //   }
+  // }
 
-  }
 }
 </script>
 

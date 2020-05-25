@@ -19,6 +19,7 @@
       v-on:displayName="displayNameOnCard"
       v-on:displayValidThru="displayValidThruOnCard"
       v-on:displayVendor="displayVendorOnCard"
+      v-on:saveNewCard="saveNewCard"
     />
 
   </div>
@@ -54,7 +55,8 @@ export default {
       this.cardNo = payload;
     },
     displayNameOnCard(payload) {
-      this.name = payload.toUpperCase();
+      this.name = payload;
+      // this.name = payload.toUpperCase();
     },
     displayValidThruOnCard(payload) {
       this.validThruMonth = payload.substring(0, 2);
@@ -62,6 +64,9 @@ export default {
     },
     displayVendorOnCard(payload) {
       this.vendor = payload;
+    },
+    saveNewCard(payload) {
+      this.$root.saveNewCard(payload);
     },
   }
 }
