@@ -56,7 +56,6 @@ export default {
     },
     displayNameOnCard(payload) {
       this.name = payload;
-      // this.name = payload.toUpperCase();
     },
     displayValidThruOnCard(payload) {
       this.validThruMonth = payload.substring(0, 2);

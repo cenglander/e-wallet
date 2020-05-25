@@ -1,6 +1,8 @@
 <template>
   <div class="card-stack">
     <Card 
+      v-on:click.native="activateCard(card)"
+
       v-for="(card, index) in allCards"
       v-bind:key="index"
       v-bind:cardNo="card.cardNo"
@@ -11,11 +13,7 @@
       v-bind:vendor="card.vendor"
       v-bind:isActive="card.isActive"
 
-      v-on:click="activateCard(card)"
-
     /> 
-<!-- v-on:click="activateCard(this.card)" -->
-
 
   </div>
 </template>
@@ -32,10 +30,10 @@ export default {
     allCards: Array,
   },
   methods: {
-    // activateCard(cardToActivate) {
-    //   cardToActivate.isActive = true;
-    //   this.$emit('activateCard', cardToActivate);
-    // },
+    activateCard(cardToActivate) {
+      this.$emit('activateCard', cardToActivate);
+    },
+
   },
 }
 </script>

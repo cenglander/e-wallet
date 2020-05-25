@@ -60,6 +60,7 @@ new Vue({
       this.cardArray.filter(card => card != payload).map(card => card.isActive = false);
     },
     activateCard(cardToActivate) {
+      cardToActivate.isActive = true;
       this.cardArray.filter(card => card != cardToActivate).map(card => card.isActive = false);
 
     }

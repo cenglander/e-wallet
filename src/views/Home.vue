@@ -4,9 +4,6 @@
 
     />
     
-    <!-- se rad 9, v-if / v-show ?
-          v-show="activeCard.isActive"
-          funkar ej när inget av korten är isActive -->
     <Card 
       v-bind:cardNo="activeCard.cardNo"
       v-bind:name="activeCard.name"
@@ -58,11 +55,11 @@ export default {
       return this.$root.getAllCards();
     },
   },
-  // methods: {
-  //   activateCard(cardToActivate) {  
-  //     this.$root.activateCard(cardToActivate);
-  //   }
-  // }
+  methods: {
+    activateCard(cardToActivate) {  
+      this.$root.activateCard(cardToActivate);
+    }
+  }
 
 }
 </script>

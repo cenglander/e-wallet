@@ -1,7 +1,7 @@
 <template>
   <div class="card"
-      v-bind:class="vendor"
-      v-on:click="activateCard(this.card)">
+      v-bind:class="vendor">
+
       <img v-if="isActive"
         v-bind:src="require('@/assets/chip-dark.svg')"
         class="chip">
@@ -17,8 +17,7 @@
       <p class="name-heading">CARDHOLDER NAME</p>
       <p class="valid-thru-heading">VALID THRU</p>
       <h5 class="name">{{ name.toUpperCase() }}</h5>
-      <h5 class="valid-thru">{{ validThruMonth }} / {{ validThruYear }} </h5>
-    
+      <h5 class="valid-thru">{{ validThruMonth }} / {{ validThruYear }} </h5> 
 
   </div>
 </template>
@@ -35,12 +34,6 @@ export default {
       vendor: String,
       isActive: Boolean,
   },
-  methods: {
-    activateCard(cardToActivate) {
-      cardToActivate.isActive = true;
-      this.$root.activateCard(cardToActivate);
-    },
-  }
 };
 </script>
 
