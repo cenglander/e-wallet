@@ -14,7 +14,7 @@ new Vue({
           validThruYear: "23",
           ccv: "543",
           vendor: "bitcoin",
-          isActive: false,
+          isActive: true,
         },
         {
           cardNo: "1111222233334444",

@@ -40,7 +40,7 @@ export default {
   },
   data: () => ({
       heading: "ADD A NEW BANK CARD",
-      cardNo: "XXXX XXXX XXXX XXXX",
+      cardNo: "XXXXXXXXXXXXXXXX",
       name: "FIRSTNAME LASTNAME",
       validThruMonth: "MM",
       validThruYear: "YY",

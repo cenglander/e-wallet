@@ -13,11 +13,11 @@
   // box-sizing: border-box;
 
   button {
-    font-weight: 1000;
-    font-size: 1rem;
-    padding: 2vh;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 1.4rem ;
     border-radius: 0.5rem;
-    width: 320px;
+    width: 21rem;
   }
 }
 </style>

@@ -11,15 +11,14 @@
         class="vendorIcon"
       />
 
-      <h3 class="cardNo">{{ cardNo }}</h3>
+      <!-- <h3 class="cardNo">{{ cardNo }}</h3> -->
+      <h3 class="cardNo">{{ addSpacesInCardNo(cardNo) }}</h3>
       <p class="name-heading">CARDHOLDER NAME</p>
       <p class="valid-thru-heading">VALID THRU</p>
       <h5 class="name">{{ name.toUpperCase() }}</h5>
       <h5 class="valid-thru">{{ validThruMonth }}/{{ validThruYear }}</h5>
     </div>
-    <!-- <div v-else class="card">
-      <h3>There are no cards in the e-wallet just yet</h3>
-    </div> -->
+    
   </div>
 </template>
 
@@ -34,22 +33,47 @@ export default {
     ccv: String,
     vendor: String,
     isActive: Boolean
-  }
+  },
+  computed: {
+    // addSpacesInCardNo(cardNo) {
+    //   let letters = cardNo.split;
+    //   console.log(letters);
+    //   return letters;
+    // }
+  },
+  methods: {
+    addSpacesInCardNo(cardNo) {
+      let numbers = cardNo.split('');
+      let cardNoSpaces = "";
+      let char = "";
+      for(let i = 0; i < numbers.length; i++) {
+        if(i % 4 === 0) {
+          char = numbers[i];
+          cardNoSpaces += " " + char;
+        }
+        else {
+          cardNoSpaces += numbers[i];
+        }
+      }
+      return cardNoSpaces;
+    }
+  },
 };
 </script>
 
 <style scoped lang="scss">
 div.card {
-  width: 300px;
-  min-height: 180px;
+  width: 21rem;
+  min-height: 13.5rem;
   border-radius: 0.5rem;
-  border: lightgrey solid 0.1rem;
+  // border: lightgrey solid 0.1rem;
   display: grid;
   grid-template-columns: 70% 15% 15%;
   grid-template-rows: 20% 30% 25% 10% 15%;
   margin: 0 auto;
-  padding: 4%;
+  padding: 0.8rem;
   font-family: "Courier New", Courier, monospace;
+  box-sizing: border-box;
 
   h3, h5, p {
     margin: 0;
@@ -71,8 +95,8 @@ div.card {
   h3.cardNo {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-size: 1.7rem;
+    font-weight: 700;
   }
   p.name-heading {
     grid-column: 1 / 2;
@@ -99,7 +123,6 @@ div.card {
     font-weight: 500;
   }
 }
-
 .bitcoin {
   background: #f9b243;
   color: black;

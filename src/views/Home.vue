@@ -2,9 +2,9 @@
   <div class="home">
     <Top v-bind:heading="heading" />
     
-    <p v-if="activeCard.isActive">ACTIVE CARD</p>
-<!-- v-if="activeCard.isActive" -->
-    <Card 
+    <p v-if="activeCard.isActive"
+      class="activeP">ACTIVE CARD</p>
+    <Card
       v-bind:cardNo="activeCard.cardNo"
       v-bind:name="activeCard.name"
       v-bind:validThruMonth="activeCard.validThruMonth"
@@ -13,9 +13,6 @@
       v-bind:vendor="activeCard.vendor"
       v-bind:isActive="activeCard.isActive"
     />
-    <!-- <h3 v-else>
-      No Cards
-    </h3> -->
 
     <CardStack
       v-bind:allCards="allCards"
@@ -67,8 +64,6 @@ export default {
 <style lang="scss">
 div .home {
   width: 100%;
-  // width: 90vw;
-  // background: lightcoral;
   margin: 0 auto;
   p {
     font-size: 0.6rem;
@@ -83,6 +78,9 @@ div .home {
   button.add-first-card-btn {
     margin: 3rem auto;
     border: solid black 0.08rem;
+  }
+  p.activeP {
+    color: #666;
   }
 }
 
