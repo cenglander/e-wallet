@@ -41,7 +41,7 @@ new Vue({
           validThruYear: "26",
           ccv: "907",
           vendor: "evil",
-          isActive: true,
+          isActive: false,
         },
     ],
 
@@ -49,10 +49,15 @@ new Vue({
   
   methods: {
     getThisCard() {
-      return this.cardArray.find(card => card.isActive == true);
+      let card = this.cardArray.find(card => card.isActive == true);
+      if(card == null) {
+        return false;
+      } else {
+        return card;
+      }
+      // return this.cardArray.find(card => card.isActive == true);
     },
     getAllCards() {
-      // return this.cardArray;
       return this.cardArray.filter(card => !card.isActive)
     },
     saveNewCard(payload) {

@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <Top v-bind:heading="heading"
-
-    />
+    <Top v-bind:heading="heading" />
     
+    <p v-if="activeCard.isActive">ACTIVE CARD</p>
+<!-- v-if="activeCard.isActive" -->
     <Card 
       v-bind:cardNo="activeCard.cardNo"
       v-bind:name="activeCard.name"
@@ -13,6 +13,9 @@
       v-bind:vendor="activeCard.vendor"
       v-bind:isActive="activeCard.isActive"
     />
+    <!-- <h3 v-else>
+      No Cards
+    </h3> -->
 
     <CardStack
       v-bind:allCards="allCards"
@@ -27,7 +30,6 @@
         class="add-first-card-btn"
         >ADD A NEW CARD</button>
     </router-link>
-
   </div>
 </template>
 
@@ -45,7 +47,6 @@ export default {
   },
   data: () => ({
         heading: "E-WALLET",
-
     }),
   computed: {
     activeCard() {
@@ -60,7 +61,6 @@ export default {
       this.$root.activateCard(cardToActivate);
     }
   }
-
 }
 </script>
 
@@ -70,16 +70,21 @@ div .home {
   // width: 90vw;
   // background: lightcoral;
   margin: 0 auto;
-
-}
-button.add-new-card-btn {
+  p {
+    font-size: 0.6rem;
+    font-weight: bold;
+    margin: 1.3rem 0 0.4rem 0;
+  }
+  button.add-new-card-btn {
   border: solid black 0.08rem;
   background: inherit;
-  margin: 22vh auto;
+  margin: 12rem auto;
+  }
+  button.add-first-card-btn {
+    margin: 3rem auto;
+    border: solid black 0.08rem;
+  }
 }
-button.add-first-card-btn {
-  margin: 10vh auto;
-  border: solid black 0.08rem;
-}
+
 
 </style>

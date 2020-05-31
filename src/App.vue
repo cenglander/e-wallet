@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    
-    <router-link to="/">Home</router-link>
-
     <router-view/>
   </div>
 </template>
@@ -13,7 +10,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  // color: #000;
   // box-sizing: border-box;
 
   button {
@@ -23,23 +19,5 @@
     border-radius: 0.5rem;
     width: 320px;
   }
-
-  h3 {
-    padding: 0;
-    margin: 0;
-  }
-  p, h5 {
-    padding: 0;
-    margin: 0;
-  }
-  p {
-    font-size: 0.7rem;
-  }
-  h5 {
-    font-size: 1rem;
-  }
-
 }
-
-
 </style>

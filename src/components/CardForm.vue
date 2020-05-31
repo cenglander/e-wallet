@@ -62,6 +62,7 @@ export default {
       vendor: "",
       isActive: true,
     },
+    validThru: "",
   }),
   methods: {
     displayNoOnCard() {

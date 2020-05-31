@@ -9,7 +9,6 @@
       v-bind:validThruMonth="this.validThruMonth"
       v-bind:validThruYear="this.validThruYear"
       v-bind:vendor="this.vendor"
-      isActive="true"
       v-bind:style="{backgroundColor: vendor}"
     />
     <!-- vendor=placeholder -klass för att kortet ska 

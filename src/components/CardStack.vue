@@ -41,8 +41,7 @@ export default {
 <style scoped lang="scss">
 div.card-stack {
   display: grid;
-  grid-auto-rows: 30px;
-  
+  grid-auto-rows: 50px;
+  margin-top: 2rem;
 }
-
 </style>

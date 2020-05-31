@@ -1,24 +1,25 @@
 <template>
-  <div class="card"
-      v-bind:class="vendor">
+  <div>
+    <!-- v-if="isActive" -->
+    <div class="card" v-bind:class="vendor">
+      <img v-if="isActive" v-bind:src="require('@/assets/chip-dark.svg')" class="chip" />
+      <img v-else v-bind:src="require('@/assets/chip-light.svg')" class="chip" />
 
-      <img v-if="isActive"
-        v-bind:src="require('@/assets/chip-dark.svg')"
-        class="chip">
-      <img v-else
-        v-bind:src="require('@/assets/chip-light.svg')"
-        class="chip">
-      
-      <img v-if="!(vendor == 'placeholder')"
+      <img
+        v-if="!(vendor == 'placeholder')"
         v-bind:src="require('@/assets/vendor-' + vendor + '.svg')"
-        class="vendorIcon">
+        class="vendorIcon"
+      />
 
       <h3 class="cardNo">{{ cardNo }}</h3>
       <p class="name-heading">CARDHOLDER NAME</p>
       <p class="valid-thru-heading">VALID THRU</p>
       <h5 class="name">{{ name.toUpperCase() }}</h5>
-      <h5 class="valid-thru">{{ validThruMonth }} / {{ validThruYear }} </h5> 
-
+      <h5 class="valid-thru">{{ validThruMonth }}/{{ validThruYear }}</h5>
+    </div>
+    <!-- <div v-else class="card">
+      <h3>There are no cards in the e-wallet just yet</h3>
+    </div> -->
   </div>
 </template>
 
@@ -26,14 +27,14 @@
 export default {
   name: "Card",
   props: {
-      cardNo: String,
-      name: String,
-      validThruMonth: String,
-      validThruYear: String,
-      ccv: String,
-      vendor: String,
-      isActive: Boolean,
-  },
+    cardNo: String,
+    name: String,
+    validThruMonth: String,
+    validThruYear: String,
+    ccv: String,
+    vendor: String,
+    isActive: Boolean
+  }
 };
 </script>
 
@@ -43,14 +44,20 @@ div.card {
   min-height: 180px;
   border-radius: 0.5rem;
   border: lightgrey solid 0.1rem;
-
   display: grid;
   grid-template-columns: 70% 15% 15%;
   grid-template-rows: 20% 30% 25% 10% 15%;
   margin: 0 auto;
   padding: 4%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 
+  h3, h5, p {
+    margin: 0;
+    padding: 0;
+  }
+  p {
+    font-size: 0.8rem;
+  }
   img.chip {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
@@ -64,7 +71,8 @@ div.card {
   h3.cardNo {
     grid-column: 1 / 4;
     grid-row: 3 / 4;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
+    font-weight: 400;
   }
   p.name-heading {
     grid-column: 1 / 2;
@@ -75,6 +83,8 @@ div.card {
     grid-column: 1 / 2;
     grid-row: 5 / 6;
     text-align: left;
+    font-size: 1.2rem;
+    font-weight: 500;
   }
   p.valid-thru-heading {
     grid-column: 2 / 4;
@@ -85,7 +95,9 @@ div.card {
     grid-column: 2 / 4;
     grid-row: 5 / 6;
     text-align: right;
-  } 
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
 }
 
 .bitcoin {
