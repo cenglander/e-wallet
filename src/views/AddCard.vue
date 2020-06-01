@@ -1,8 +1,7 @@
 <template>
   <div class="add-card">
-    <Top v-bind:heading="heading"
-    
-    />
+    <Top v-bind:heading="heading"/>
+    <p>NEW CARD</p>
     <Card  
       v-bind:cardNo="this.cardNo"
       v-bind:name="this.name"
@@ -11,8 +10,6 @@
       v-bind:vendor="this.vendor"
       v-bind:style="{backgroundColor: vendor}"
     />
-    <!-- vendor=placeholder -klass för att kortet ska 
-      vara grått -->
     <CardForm
       v-on:displayNo="displayNoOnCard"
       v-on:displayName="displayNameOnCard"
@@ -20,16 +17,13 @@
       v-on:displayVendor="displayVendorOnCard"
       v-on:saveNewCard="saveNewCard"
     />
-
   </div>
 </template>
 
 <script>
-
 import Top from '@/components/Top.vue'
 import Card from '@/components/Card.vue'
 import CardForm from '@/components/CardForm.vue'
-
 
 export default {
   name: 'AddCard',
@@ -46,8 +40,6 @@ export default {
       validThruYear: "YY",
       ccv: "",
       vendor: "placeholder",
-
-
   }),
   methods: {
     displayNoOnCard(payload) {
@@ -73,5 +65,11 @@ export default {
   div .add-card {
     width: 90vw;
     margin: 0 auto;
+  }
+  p {
+    color: #666;
+    font-size: 0.6rem;
+    font-weight: bold;
+    margin: 1.3rem 0 0.4rem 0;
   }
 </style>

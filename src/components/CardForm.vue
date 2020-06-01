@@ -1,30 +1,38 @@
 <template>
   <div class="card-form">
     <form action="">
-      <label>CARD NUMBER {{ this.card.cardNo }} </label>
-      <input v-model="card.cardNo" 
+      <label class="cardNoTitle">CARD NUMBER</label>
+      <input 
+        class="cardNo"
+        v-model="card.cardNo" 
         v-on:keyup="displayNoOnCard"
         :maxlength="16">
 
-      <label>CARDHOLDER NAME</label>
-      <input v-model="card.name"
+      <label class="nameTitle">CARDHOLDER NAME</label>
+      <input 
+        class="name"
+        v-model="card.name"
         v-on:keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME"
         :maxlength="30">
-
-      <label class="left">VALID THRU</label>
-      <input v-model="validThru" 
-        v-on:keyup="displayValidThruOncard(); splitValidThru()" 
-        class="left"
+      
+      <label class="validTitle">VALID THRU</label>
+      <input 
+        class="valid"
+        v-model="validThru" 
+        v-on:keyup="displayValidThruOncard(); splitValidThru()"
         :maxlength="4">
 
-      <label class="right">CCV</label>
-      <input v-model="card.ccv" 
-        class="right"
+      <label class="ccvTitle">CCV</label>
+      <input 
+        class="ccv"
+        v-model="card.ccv"
         :maxlength="3">
 
-      <label>VENDOR</label>
-      <select v-model="card.vendor"
+      <label class="vendorTitle">VENDOR</label>
+      <select 
+        class="vendor"
+        v-model="card.vendor"
         v-on:change="displayVendorOnCard">
         <option v-for="vendor in vendorList"
           v-bind:key="vendor.value"
@@ -84,51 +92,89 @@ export default {
     saveNewCard() {
       this.$emit('saveNewCard', this.card);
     }
-
-
   }
 }
 </script>
 
 <style scoped lang="scss">
-.left {
-  width: 40%;
-  text-align: left;
-}
-.right {
-  width: 40%;
-  text-align: left;
-  // position: relative;
-  // left: 50%;
-}
   div.card-form {
-    display: grid;
-    // grid-template-rows: 5% 10% 5% 10% 5% 10% 5% 10% 5% 10% 25%;
-  }
-  form {
-    text-align: left;
-  }
-  form label {
-    font-size: 0.7rem;
-    margin-top: 1vh;
-  }
-  form input, select {
-    padding: 2vh;
-    border-radius: 0.5rem;
-    border: solid black 0.08rem;
-    font-size: 1rem;
-    font-weight: 800;
-    display: block;
-  }
-  form label, input, select, option {
-    font-family: 'Courier New', Courier, monospace;
-    width: 300px;
-    // margin-left: auto;
-    // margin-right: auto;
-  }
-  button.add-card-btn {
-    background: #000;
-    color: white;
-    margin: 5vh auto;
+    width: 21rem;
+    margin: 2rem auto;
+    form {
+      display: grid;
+      grid-template-rows: 7% 12% 7% 12% 7% 12% 7% 12%;
+      grid-template-columns: 50% 50%;
+      grid-template-areas: 
+        "cardNoTitle cardNoTitle"
+        "cardNo cardNo"
+        "nameTitle nameTitle"
+        "name name"
+        "validTitle ccvTitle"
+        "valid ccv"
+        "vendorTitle vendorTitle"
+        "vendor vendor"
+      ;     
+    }
+    .cardNoTitle {
+      grid-area: cardNoTitle;
+    }
+    .cardNo {
+      grid-area: cardNo;
+    }
+    .nameTitle {
+      grid-area: nameTitle;
+    }
+    .name {
+      grid-area: name;
+    }
+    .validTitle {
+      grid-area: validTitle;
+      width: 10.5rem;
+    }
+    .valid {
+      grid-area: valid;
+      width: 10.3rem;
+      margin-right: 0.2rem;
+    }
+    .ccvTitle {
+      grid-area: ccvTitle;
+      width: 10rem;
+    }
+    .ccv {
+      grid-area: ccv;
+      width: 10.3rem;
+      margin-left: 0.2rem;
+    }
+    .vendorTitle {
+      grid-area: vendorTitle;
+    }
+    .vendor {
+      grid-area: vendor;
+    } 
+    form {
+      text-align: left;
+      margin-bottom: 0;
+    }
+    form label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    form input, select {
+      padding: 1.6rem 0;
+      border-radius: 0.5rem;
+      border: solid black 0.08rem;
+      font-size: 1rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+    form label, input, select, option {
+      font-family: 'Courier New', Courier, monospace;
+      width: 21rem;
+    }
+    button.add-card-btn {
+      background: #000;
+      color: white;
+    }
   }
 </style>
