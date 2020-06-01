@@ -14,7 +14,7 @@
         v-model="card.name"
         v-on:keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME"
-        :maxlength="30">
+        :maxlength="20">
       
       <label class="validTitle">VALID THRU</label>
       <input 
@@ -102,7 +102,7 @@ export default {
     margin: 2rem auto;
     form {
       display: grid;
-      grid-template-rows: 7% 12% 7% 12% 7% 12% 7% 12%;
+      grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
       grid-template-columns: 50% 50%;
       grid-template-areas: 
         "cardNoTitle cardNoTitle"
@@ -112,8 +112,7 @@ export default {
         "validTitle ccvTitle"
         "valid ccv"
         "vendorTitle vendorTitle"
-        "vendor vendor"
-      ;     
+        "vendor vendor";     
     }
     .cardNoTitle {
       grid-area: cardNoTitle;
@@ -153,20 +152,20 @@ export default {
     } 
     form {
       text-align: left;
-      margin-bottom: 0;
+      margin-bottom: 2rem;
     }
     form label {
       font-size: 0.8rem;
       font-weight: 600;
-      margin-top: 1rem;
+      margin: 1rem 0 0 0;
     }
     form input, select {
-      padding: 1.6rem 0;
+      padding: 1rem 0.7rem;
       border-radius: 0.5rem;
       border: solid black 0.08rem;
       font-size: 1rem;
       font-weight: 800;
-      margin-bottom: 0.8rem;
+      box-sizing: border-box;
     }
     form label, input, select, option {
       font-family: 'Courier New', Courier, monospace;
@@ -175,6 +174,7 @@ export default {
     button.add-card-btn {
       background: #000;
       color: white;
+      border: #000;
     }
   }
 </style>
