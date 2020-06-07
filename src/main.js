@@ -67,6 +67,10 @@ new Vue({
     activateCard(cardToActivate) {
       cardToActivate.isActive = true;
       this.cardArray.filter(card => card != cardToActivate).map(card => card.isActive = false);
+    },
+    unSelectCard(cardToUnselect) {
+      cardToUnselect.isActive = false;
+      // this.cardArray.filter(card => card != cardToUnselect).map(card => card.isActive = false);
     }
   },
 

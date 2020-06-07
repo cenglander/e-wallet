@@ -5,6 +5,7 @@
     <p v-if="activeCard.isActive"
       class="activeP">ACTIVE CARD</p>
     <Card 
+      @click.native="unSelectCard(activeCard)"
       :cardNo="activeCard.cardNo"
       :name="activeCard.name"
       :validThruMonth="activeCard.validThruMonth"
@@ -50,13 +51,16 @@ export default {
       return this.$root.getThisCard()
     },
     cardStack() {
-      return this.$root.getCardStack();
+      return this.$root.getCardStack()
     },
   },
   methods: {
     activateCard(cardToActivate) {  
-      this.$root.activateCard(cardToActivate);
-    }
+      this.$root.activateCard(cardToActivate)
+    },
+    unSelectCard(cardToUnSelect) {
+      this.$root.unSelectCard(cardToUnSelect)
+    },
   }
 }
 </script>
