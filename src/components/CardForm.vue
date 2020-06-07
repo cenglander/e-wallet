@@ -5,14 +5,14 @@
       <input 
         class="cardNo"
         v-model="card.cardNo" 
-        v-on:keyup="displayNoOnCard"
+        @keyup="displayNoOnCard"
         :maxlength="16">
 
       <label class="nameTitle">CARDHOLDER NAME</label>
       <input 
         class="name"
         v-model="card.name"
-        v-on:keyup="displayNameOnCard"
+        @keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME"
         :maxlength="20">
       
@@ -20,7 +20,7 @@
       <input 
         class="valid"
         v-model="validThru" 
-        v-on:keyup="displayValidThruOncard(); splitValidThru()"
+        @keyup="displayValidThruOncard(); splitValidThru()"
         :maxlength="4">
 
       <label class="ccvTitle">CCV</label>
@@ -33,10 +33,10 @@
       <select 
         class="vendor"
         v-model="card.vendor"
-        v-on:change="displayVendorOnCard">
+        @change="displayVendorOnCard">
         <option v-for="vendor in vendorList"
-          v-bind:key="vendor.value"
-          v-bind:value="vendor.value">
+          :key="vendor.value"
+          :value="vendor.value">
           {{ vendor.text }}
         </option>
       </select>
@@ -44,7 +44,7 @@
 
     <router-link to="/">
       <button class="add-card-btn"
-        v-on:click="saveNewCard">ADD CARD</button>
+        @click="saveNewCard">ADD CARD</button>
     </router-link>
   </div>
 </template>
