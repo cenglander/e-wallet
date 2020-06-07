@@ -1,9 +1,19 @@
 <template>
   <div class="card-form">
-    <form action="">
+    <form id="add"
+          @submit="checkForm">
+      <p v-if="errors.length">
+        <b>Please correct the following error(s):</b>
+        <ul>
+          <li v-for="(error, index) in errors"
+            :key="index">
+            {{ error }}</li>
+        </ul>
+      </p>
       <label class="cardNoTitle">CARD NUMBER</label>
       <input 
         class="cardNo"
+        id="cardNo"
         v-model="card.cardNo" 
         @keyup="displayNoOnCard"
         :maxlength="16">
@@ -11,6 +21,7 @@
       <label class="nameTitle">CARDHOLDER NAME</label>
       <input 
         class="name"
+        id="name"
         v-model="card.name"
         @keyup="displayNameOnCard"
         placeholder="FIRSTNAME LASTNAME"
@@ -19,18 +30,21 @@
       <label class="validTitle">VALID THRU</label>
       <input 
         class="valid"
+        id="valid"
         v-model="validThru" 
         @keyup="displayValidThruOncard(); splitValidThru()"
         :maxlength="4">
 
       <label class="ccvTitle">CCV</label>
       <input 
+        id="ccv"
         class="ccv"
         v-model="card.ccv"
         :maxlength="3">
 
       <label class="vendorTitle">VENDOR</label>
       <select 
+        id="vendor"
         class="vendor"
         v-model="card.vendor"
         @change="displayVendorOnCard">
@@ -40,12 +54,18 @@
           {{ vendor.text }}
         </option>
       </select>
+      <router-link to="/">
+        <input class="add-card-btn"
+          @click="saveNewCard"
+          type="submit" value="ADD CARD">
+      </router-link>
     </form>
 
-    <router-link to="/">
+   
+    <!-- <router-link to="/">
       <button class="add-card-btn"
         @click="saveNewCard">ADD CARD</button>
-    </router-link>
+    </router-link> -->
   </div>
 </template>
 
@@ -54,6 +74,7 @@ export default {
   name: 'CardForm',
   components: {
   },
+  el: '#add',
   data: () => ({
     vendorList: [
       { text: 'Bitcoin Inc', value: 'bitcoin' },
@@ -71,8 +92,31 @@ export default {
       isActive: true,
     },
     validThru: "",
+    errors: [],
   }),
   methods: {
+    checkForm: function (e) {
+      if (this.card.cardNo && this.card.name && this.validThru && this.card.ccv && this.card.vendor) {
+        return true
+      } 
+      this.errors = []
+      if (!this.card.cardNo) {
+        this.errors.push("Card number required.")
+      }
+      if (!this.card.name) {
+        this.errors.push("Name required.")
+      }
+      if (!this.card.validThru) {
+        this.errors.push("Valid thru (MM/YY) required.")
+      }
+      if (!this.card.ccv) {
+        this.errors.push("CCV required.")
+      }
+      if (!this.card.vendor) {
+        this.errors.push("Vendor required.")
+      }
+      e.preventDefault()
+    },
     displayNoOnCard() {
       this.$emit('displayNo', this.card.cardNo)
     },
