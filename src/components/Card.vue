@@ -11,14 +11,12 @@
         class="vendorIcon"
       />
 
-      <!-- <h3 class="cardNo">{{ cardNo }}</h3> -->
       <h3 class="cardNo">{{ addSpacesInCardNo(cardNo) }}</h3>
       <p class="name-heading">CARDHOLDER NAME</p>
       <p class="valid-thru-heading">VALID THRU</p>
       <h5 class="name">{{ name.toUpperCase() }}</h5>
       <h5 class="valid-thru">{{ validThruMonth }}/{{ validThruYear }}</h5>
     </div>
-    
   </div>
 </template>
 
@@ -26,6 +24,7 @@
 export default {
   name: "Card",
   props: {
+    // card: Object,
     cardNo: String,
     name: String,
     validThruMonth: String,
@@ -35,11 +34,6 @@ export default {
     isActive: Boolean
   },
   computed: {
-    // addSpacesInCardNo(cardNo) {
-    //   let letters = cardNo.split;
-    //   console.log(letters);
-    //   return letters;
-    // }
   },
   methods: {
     addSpacesInCardNo(cardNo) {
@@ -66,7 +60,6 @@ div.card {
   width: 21rem;
   min-height: 13.5rem;
   border-radius: 0.5rem;
-  // border: lightgrey solid 0.1rem;
   display: grid;
   grid-template-columns: 70% 15% 15%;
   grid-template-rows: 20% 30% 25% 10% 15%;

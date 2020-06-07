@@ -44,9 +44,7 @@ new Vue({
           isActive: false,
         },
     ],
-
-  }),
-  
+  }),  
   methods: {
     getThisCard() {
       let card = this.cardArray.find(card => card.isActive == true);
@@ -55,10 +53,12 @@ new Vue({
       } else {
         return card;
       }
-      // return this.cardArray.find(card => card.isActive == true);
+    },
+    getCardStack() {
+      return this.cardArray.filter(card => !card.isActive)
     },
     getAllCards() {
-      return this.cardArray.filter(card => !card.isActive)
+      return this.cardArray
     },
     saveNewCard(payload) {
       this.cardArray.push(payload);
@@ -67,11 +67,8 @@ new Vue({
     activateCard(cardToActivate) {
       cardToActivate.isActive = true;
       this.cardArray.filter(card => card != cardToActivate).map(card => card.isActive = false);
-
     }
-
   },
-
 
   router,
   render: h => h(App)

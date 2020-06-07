@@ -1,26 +1,26 @@
 <template>
   <div class="home">
-    <Top v-bind:heading="heading" />
+    <Top :heading="heading" />
     
     <p v-if="activeCard.isActive"
       class="activeP">ACTIVE CARD</p>
-    <Card
-      v-bind:cardNo="activeCard.cardNo"
-      v-bind:name="activeCard.name"
-      v-bind:validThruMonth="activeCard.validThruMonth"
-      v-bind:validThruYear="activeCard.validThruYear"
-      v-bind:ccv="activeCard.ccv"
-      v-bind:vendor="activeCard.vendor"
-      v-bind:isActive="activeCard.isActive"
+    <Card 
+      :cardNo="activeCard.cardNo"
+      :name="activeCard.name"
+      :validThruMonth="activeCard.validThruMonth"
+      :validThruYear="activeCard.validThruYear"
+      :ccv="activeCard.ccv"
+      :vendor="activeCard.vendor"
+      :isActive="activeCard.isActive"
     />
 
     <CardStack
-      v-bind:allCards="allCards"
-      v-on:activateCard="activateCard"
+      :cardStack="cardStack"
+      @activateCard="activateCard"
     />
 
     <router-link to="/add-card">
-      <button v-if="allCards.length > 0"
+      <button v-if="cardStack.length > 0"
         class="add-new-card-btn"
         >ADD A NEW CARD</button>
       <button v-else
@@ -49,8 +49,8 @@ export default {
     activeCard() {
       return this.$root.getThisCard()
     },
-    allCards() {
-      return this.$root.getAllCards();
+    cardStack() {
+      return this.$root.getCardStack();
     },
   },
   methods: {
@@ -83,6 +83,4 @@ div .home {
     color: #666;
   }
 }
-
-
 </style>
